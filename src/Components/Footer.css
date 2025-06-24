@@ -1,0 +1,139 @@
+.footer {
+  background-color: #fffaf4;
+  color: #4e342e;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  border-top: 1px solid #ddd0c8;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.footer-section h4 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #3e2723;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.footer-section ul li:hover {
+  color: #6d4c41;
+}
+
+.footer-section p {
+  font-size: 0.95rem;
+  margin-bottom: 0.75rem;
+}
+
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.newsletter-form input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.newsletter-form button {
+  background-color: #6d4c41;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.newsletter-form button:hover {
+  background-color: #5d4037;
+}
+
+.footer-logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icons a {
+  color: #4e342e;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #6d4c41;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #6d4c41;
+}
+
+/* Dark mode support */
+body.dark .footer {
+  background-color: #2e2e2e;
+  color: #f1f1f1;
+  border-top: 1px solid #444;
+}
+
+body.dark .footer-section h4,
+body.dark .footer-section ul li,
+body.dark .footer p,
+body.dark .footer-logo,
+body.dark .social-icons a {
+  color: #f1f1f1;
+}
+
+body.dark .newsletter-form input {
+  background-color: #3a3a3a;
+  color: #f1f1f1;
+  border: 1px solid #555;
+}
+
+body.dark .newsletter-form button {
+  background-color: #444;
+}
+
+body.dark .newsletter-form button:hover {
+  background-color: #555;
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-logo {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}

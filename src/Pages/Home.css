@@ -1,0 +1,161 @@
+.home-container {
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffaf4;
+  color: #4e342e;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.headline {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.subheadline {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #5d4037;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.primary-btn {
+  background-color: #6d4c41;
+  color: white;
+}
+
+.primary-btn:hover {
+  background-color: #5d4037;
+}
+
+.secondary-btn {
+  background-color: #d7ccc8;
+  color: #4e342e;
+}
+
+.secondary-btn:hover {
+  background-color: #bcaaa4;
+}
+
+.hero-image {
+  flex: 1 1 400px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
+.highlights {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.highlights h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.points {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.point {
+  background-color: #ffe0b2;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  min-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .headline {
+    font-size: 2rem;
+  }
+
+  .subheadline {
+    font-size: 1rem;
+  }
+
+  .points {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headline {
+    font-size: 1.6rem;
+  }
+
+  .subheadline {
+    font-size: 0.9rem;
+  }
+
+  .point {
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .highlights h2 {
+    font-size: 1.5rem;
+  }
+
+  .home-container {
+    padding: 1rem;
+  }
+}
