@@ -169,7 +169,12 @@ export const Shop = () => {
               <button onClick={handleSubscribe}>Buy Now</button>
             )}
           </div>
+          
         ))}
+
+        <div>
+          hello
+        </div>
       </div>
     </div>
   );
