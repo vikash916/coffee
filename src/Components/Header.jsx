@@ -1,34 +1,88 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaUser, FaShoppingCart, FaSearch } from "react-icons/fa";
+import { ShoppingCart, Search, User, Menu } from "lucide-react";
 import "./Header.css";
 
-export const Header = () => {
-  const [darkMode, setDarkMode] = useState(false);
+export const Header = ({ onSearch }) => {
+  const [showSearch, setShowSearch] = useState(false);
+  const [query, setQuery] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(2); // dummy count
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  useEffect(() => {
-    document.body.classList.toggle("dark", darkMode);
-  }, [darkMode]);
+  const handleSearchChange = (e) => {
+    const val = e.target.value;
+    setQuery(val);
+    if (onSearch) onSearch(val);
+  };
+
+  const toggleLogin = () => {
+    setIsLoggedIn(!isLoggedIn);
+  };
 
   return (
-    <header className={`header ${darkMode ? "dark" : ""}`}>
-      <div className="logo">Brewly ☕</div>
-      <nav className="nav">
-        <Link to="/" className="nav-link">Home</Link>
-        <Link to="/shop" className="nav-link">Shop</Link>
-        <Link to="/subscribe" className="nav-link">Subscribe</Link>
-        <Link to="/about" className="nav-link">About</Link>
-        <Link to="/contact" className="nav-link">Our Stores</Link>
-        <Link to="/contact" className="nav-link">Contact</Link>
-      </nav>
-      <div className="header-icons">
-        <Link to="/search" className="icon-btn"><FaSearch /></Link>
-        <Link to="/cart" className="icon-btn"><FaShoppingCart /></Link>
-        <Link to="/login" className="icon-btn"><FaUser /></Link>
+    <header className="header">
+      {/* Logo */}
+      <div className="logo">
+        <Link to="/">☕ CoffeeVerse</Link>
       </div>
-      <button className="toggle-btn" onClick={() => setDarkMode(!darkMode)}>
-        {darkMode ? "☀️ Light" : "🌙 Dark"}
-      </button>
+
+      {/* Right-side Icons (same row on mobile) */}
+      <div className="header-icons">
+        {/* 🍔 Hamburger */}
+        <button className="icon-btn" onClick={() => setMenuOpen(!menuOpen)}>
+          <Menu size={20} />
+        </button>
+
+        {/* 🔍 Search */}
+        <button className="icon-btn" onClick={() => setShowSearch(!showSearch)}>
+          <Search size={20} />
+        </button>
+
+        {/* 🛒 Cart */}
+        <Link to="/cart" className="icon-btn">
+          <ShoppingCart size={20} />
+          <span className="cart-badge">{cartCount}</span>
+        </Link>
+      </div>
+
+      {/* Nav Links */}
+      <nav className={`nav-links ${menuOpen ? "open" : ""}`}>
+        <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        <Link to="/shop" onClick={() => setMenuOpen(false)}>Shop</Link>
+        <Link to="/subscribe" onClick={() => setMenuOpen(false)}>Subscribe</Link>
+        <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+         <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+         <Link to="/store" onClick={() => setMenuOpen(false)}>Our Store</Link>
+        <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+      </nav>
+
+      {/* 👤 User Dropdown (desktop only) */}
+      <div className="icon-btn user-container">
+        <User size={20} />
+        <div className="user-dropdown">
+          {isLoggedIn ? (
+            <>
+              <Link to="/profile">Profile</Link>
+              <button onClick={toggleLogin}>Logout</button>
+            </>
+          ) : (
+            <Link to="/signin">Sign In</Link>
+          )}
+        </div>
+      </div>
+
+      {/* Search Bar */}
+      {showSearch && (
+        <div className="search-bar">
+          <input
+            type="text"
+            value={query}
+            onChange={handleSearchChange}
+            placeholder="Search coffee..."
+          />
+        </div>
+      )}
     </header>
   );
 };

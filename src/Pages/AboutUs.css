@@ -1,0 +1,90 @@
+/* AboutUs.css */
+
+.about-container {
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background-color: #fffaf4;
+  color: #3e2723;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  color: #6d4c41;
+}
+
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-section.reverse {
+  flex-direction: row-reverse;
+}
+
+.about-section .text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-section .text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-section .text p {
+  font-size: 1rem;
+  color: #5d4037;
+}
+
+.about-section .img {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.about-section .img img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-section.reverse {
+    flex-direction: column;
+  }
+}
+
+
+body.dark .about-container {
+  background-color: #1e1e1e;
+  color: #f1f1f1;
+}
+
+body.dark .about-hero p,
+body.dark .about-section .text p {
+  color: #ccc;
+}
+
+body.dark .about-section .img img {
+  filter: brightness(0.85);
+}
